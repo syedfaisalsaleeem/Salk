@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Airbnb Cereal App";
+  src: url("./assets/fonts/AirbnbCerealMedium.ttf");
+}
+
+@font-face {
+  font-family: "Airbnb Light";
+  src: url("./assets/fonts/AirbnbCerealLight.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Airbnb Cereal App";
+}
+
+ul li {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #393b3e;
+}
+
+body::-webkit-scrollbar {
+  width: 0.45rem;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #393b3e;
+  outline: 1px solid slategrey;
+}

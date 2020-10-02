@@ -1,0 +1,54 @@
+.Phone1 .desktopImg img {
+  width: 450px;
+  margin-top: 4rem;
+}
+.Phone1 .mobileImg {
+  display: none;
+}
+
+.Phone1 .mobileImg img {
+  width: 80%;
+}
+
+.slider-content-warper {
+  text-align: center;
+}
+
+.slider-title {
+  font-weight: 400;
+
+  opacity:70%;
+  font-size: 20px;
+  margin-bottom: 1rem;
+}
+@media (max-width: 1110px) {
+  .Phone1 .desktopImg img {
+    width: 100%;
+    
+  }
+}
+
+
+@media (max-width: 700px) {
+  .Phone1 {
+    margin-right: 0rem;
+    margin: 0 1rem;
+  }
+  .Phone1 .phone-content {
+    margin-bottom: 6rem;
+  }
+  .Phone1 .desktopImg {
+    display: none;
+  }
+  .Phone1 .mobileImg {
+    display: block;
+  }
+
+  .Phone1 .mobileImg img {
+    display: block;
+    margin-top: 1rem;
+  }
+  .Phone1 .subHeading {
+    margin-bottom: -2.5rem;
+  }
+}

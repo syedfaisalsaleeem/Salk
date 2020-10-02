@@ -1,0 +1,20 @@
+.privacy-policy .top-header {
+    background: #F5F6F7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+}
+
+.privacy-policy .policies {
+    max-width: 90%;
+    margin: 2rem auto 10rem;
+}
+
+.privacy-policy .policies ul li{
+    padding: 1rem 0;
+    font-family: "Airbnb Light";
+    font-weight: bold;
+    font-size: 16px;
+}

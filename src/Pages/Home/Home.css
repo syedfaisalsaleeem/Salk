@@ -1,0 +1,70 @@
+.home {
+  margin-top: 1rem;
+}
+
+.home .showcaseTop img {
+  width: 100%;
+  height: 100%;
+}
+
+.home .showcaseTop {
+  padding-left: 75px;
+}
+
+.home .showcaseBottom {
+  margin-top: 94px;
+}
+
+.home .showcaseBottom img {
+  height: 114px;
+  width: 163.8px;
+  margin-left: -2rem;
+}
+
+.home .showcaseBottom .boxText {
+  font-family: "Airbnb Light";
+  font-size: 16px;
+  color: #393b3e;
+}
+.home .showcaseBottom .boxHeading {
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.home .curveBg img {
+  width: 100%;
+  height: 400px;
+  margin: 0;
+  margin-top: -200px;
+  margin-bottom: 100px;
+}
+
+@media (max-width: 960px) {
+  .home .showcaseTop {
+    padding-left: 25px;
+  }
+  .showcase-top-warper {
+    position: absolute;
+    max-width: 95%;
+    top: 8rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .home .curveBg img {
+    height: 200px;
+    margin-top: -100px;
+    margin-bottom: 100px;
+  }
+  .home .showcaseTop img {
+    height: 120%;
+  }
+  .showcase-top-warper {
+    top: 6rem;
+  }
+}
+@media (max-width: 500px) {
+  .home .showcaseTop {
+    padding-left: 15px;
+  }
+}

@@ -1,0 +1,33 @@
+.Accordion {
+  max-width: 400px;
+}
+
+.subHeading {
+  font-size: 18px;
+  color: rgb(107, 107, 107);
+  font-weight: bold;
+  margin-left: 0.5rem;
+  margin-bottom: 0.6rem;
+  
+}
+
+@media(max-width: 960px) {
+  .Accordion .subHeading { 
+    font-size: 15px;
+    
+  }
+}
+
+@media (max-width: 600px) {
+  .Accordion .subHeading {
+    padding-bottom: 2rem;
+  }
+}
+
+.listItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  margin-bottom: 0.6rem;
+}

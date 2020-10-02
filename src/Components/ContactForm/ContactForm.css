@@ -1,0 +1,49 @@
+.contact-form {
+  max-width: 80%;
+  margin: 2rem auto;
+}
+
+.contact-form .form-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: -0.5rem;
+}
+
+.contact-form .form-title i {
+  margin-right: 1rem;
+}
+
+.contact-form .form-group {
+  margin-top: 1rem;
+}
+
+.contact-form .form-group textarea {
+  height: 150px;
+  width: 100%;
+  resize: none;
+  padding: 1rem;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.contact-form .form-group textarea:focus {
+  border: 2px solid #353537;
+  outline: none;
+}
+
+.contact-form .form-group .btn {
+    width: 130px;
+    background: #353537;
+    color: #fff;
+    text-transform: capitalize;
+    padding: 0.7rem;
+    font-family: "Airbnb Light";
+}
+
+.contact-form .MuiTextField-root {
+  width: 100%;
+}
+
+.contact-form .MuiInputBase-input {
+  height: 1rem;
+}
