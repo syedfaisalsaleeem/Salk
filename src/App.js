@@ -1,16 +1,13 @@
-import React, { lazy, Suspense, useEffect } from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import { Switch, Route } from "react-router-dom";
 import { MuiThemeProvider, StylesProvider } from "@material-ui/core";
 import { theme } from "./Theme";
-import Loader from "./Components/UI/Loader/Laoder";
 import "aos/dist/aos.css";
 import PrivacyPolicy from "./Pages/PrivacyPolicy/PrivacyPolicy";
-
-const Layout = lazy(() => import("./Hoc/Layout/Layout"));
-const Home = lazy(() => import("./Pages/Home/Home"));
-const About = lazy(() => import("./Pages/About/About"));
-const Contact = lazy(() => import("./Pages/Contact/Contact"));
+import Layout from "./Hoc/Layout/Layout";
+import Home from "./Pages/Home/Home";
+import About from "./Pages/About/About";
 
 function App() {
   useEffect(() => {
@@ -39,53 +36,13 @@ function App() {
   return (
     <MuiThemeProvider theme={theme}>
       <StylesProvider injectFirst>
-        <Route
-          path="/"
-          render={() => (
-            <Suspense fallback={<Loader />}>
-              <Layout>
-                <Switch>
-                  <Route
-                    exact
-                    path="/"
-                    render={() => (
-                      <Suspense fallback={<Loader />}>
-                        <Home />
-                      </Suspense>
-                    )}
-                  />
-                  <Route
-                    exact
-                    path="/about"
-                    render={() => (
-                      <Suspense fallback={<Loader />}>
-                        <About />
-                      </Suspense>
-                    )}
-                  />
-                  <Route
-                    exact
-                    path="/contact"
-                    render={() => (
-                      <Suspense fallback={<Loader />}>
-                        <Contact />
-                      </Suspense>
-                    )}
-                  />
-                  <Route
-                    exact
-                    path="/privacy-policy"
-                    render={() => (
-                      <Suspense fallback={<Loader />}>
-                        <PrivacyPolicy />
-                      </Suspense>
-                    )}
-                  />
-                </Switch>
-              </Layout>
-            </Suspense>
-          )}
-        />
+        <Layout>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/privacy-policy" component={PrivacyPolicy} />
+          </Switch>
+        </Layout>
       </StylesProvider>
     </MuiThemeProvider>
   );
