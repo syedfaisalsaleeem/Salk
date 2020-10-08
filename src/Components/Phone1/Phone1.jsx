@@ -57,7 +57,7 @@ const Phone2 = (props) => {
   return (
     <section className="Phone1">
       {window.innerWidth <= 700 && (
-        <div style={{paddingBottom:"55px"}}>
+        <div style={{paddingBottom:"55px"}} >
           <Grid item>
           <Grid container justify="center" style={{color: "#6b6b6b",fontSize: "22px"}}>
             {props.heading1}
@@ -67,9 +67,9 @@ const Phone2 = (props) => {
           <Grid item xs="12" justify="center" className="mobileImg">
             <img src={props.screen} alt="" />
           </Grid>
-          <Grid item xs="12"  className="slider-content-warper">
-            <Grid container justify="center" className="slider-title">
-              {"1234"}
+          <Grid item xs="12"  >
+            <Grid container justify="center" style={{textAlign: "center",paddingBottom:"1rem",fontWeight:"400",opacity:"70%",fontSize: "20px"}}>
+              {props.phoneContent.title1}
             </Grid>
           
           </Grid>

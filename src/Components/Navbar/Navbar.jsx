@@ -57,7 +57,7 @@ export default React.memo(function Navbar() {
             />
           </Link>
           <Typography className={classes.title}>
-            <Link to="/">Productly</Link>
+            <Link to="/">Salk</Link>
           </Typography>
           <div className={classes.navItems}>
             <NavItem path="/" text="Home" />

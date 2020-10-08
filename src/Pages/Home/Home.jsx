@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import {
   phone1 as phone1Data,
   phone2 as phone2Data,
@@ -20,7 +20,7 @@ import "./Home.css";
 
 const useStyles = makeStyles((theme) => ({
   heading1: {
-    color: theme.palette.primary.main,
+    color:theme.palette.main,
     fontSize: "60px",
     fontWeight: "bold",
     margin: "0",
@@ -33,10 +33,34 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "40px",
     },
     [theme.breakpoints.down("sm")]: {
+      color: "white",
       fontSize: "30px",
     },
     [theme.breakpoints.down("xs")]: {
+      color: "white",
       fontSize: "20px",
+    },
+  },
+  heading1me: {
+    color: "white",
+    fontSize: "60px",
+    fontWeight: "bold",
+    margin: "0",
+    padding: "0",
+    lineHeight: "1.2",
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "45px",
+    },
+    [theme.breakpoints.down("md")]: {
+      fontSize: "50px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      color: "white",
+      fontSize: "43px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      color: "white",
+      fontSize: "25px",
     },
   },
   heading2: {
@@ -49,7 +73,9 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "18px",
-      maxWidth: "50%",
+      justify:"center",
+      textAlign:"center",
+      width:"50%"
     },
     [theme.breakpoints.down("xs")]: {
       fontSize: "15px",
@@ -57,15 +83,37 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: 0,
     },
   },
+  headingme: {
+    color: theme.palette.heading.hd1,
+    fontSize: "25px",
+    marginBottom:"40px",
+    marginTop:"40px",
+    textAlign: "center",
+    [theme.breakpoints.down("md")]: {
+      fontSize: "25px",
+
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "22px",
+      justify:"center",
+      textAlign:"center",
+
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "20px",
+      lineHeight: "1.2",
+
+    },
+  },
   btnWarper: {
-    marginTop: "1rem",
+    
   },
   btn: {
-    background: theme.palette.primary.main,
+    background:theme.palette.primary.main,
     width: "175px",
     height: "53px",
     textAlign: "center",
-    color: "#fff",
+    color:"white",
     textTransform: "capitalize",
     [theme.breakpoints.down("md")]: {
       width: "120px",
@@ -74,9 +122,38 @@ const useStyles = makeStyles((theme) => ({
       width: "100px",
       height: "40px",
       fontSize: "12px",
+      color: "white",
+      border:" 1px solid white",
     },
     [theme.breakpoints.down("xs")]: {
       marginTop: "0px",
+    },
+    "&:hover": {
+      background: theme.palette.primary.main,
+      opacity: "0.9",
+    },
+  },
+  btnme: {
+    color: "white",
+    border:" 1px solid white",
+    width: "175px",
+    height: "53px",
+    textAlign: "center",
+    
+    textTransform: "capitalize",
+    [theme.breakpoints.down("md")]: {
+      width: "120px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      width: "150px",
+      height: "45px",
+      fontSize: "14px",
+      color: "white",
+      border:" 1px solid white",
+    },
+    [theme.breakpoints.down("xs")]: {
+      marginTop: "0px",
+
     },
     "&:hover": {
       background: theme.palette.primary.main,
@@ -118,38 +195,97 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height
+  };
+}
 
+function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}
 const Home = () => {
   const classes = useStyles();
+  const { height, width } = useWindowDimensions();
   return (
     <section className="home">
-      
-      <Grid container className="showcaseTop">
-        <Grid
-          item
-          xs="12"
-          md="6"
-          container
-          direction="column"
-          justify="center"
-          className="showcase-top-warper"
-        >
-          <div className="showcase-top-content">
-            <Typography data-aos="fade-up" className={classes.heading1}>
+      {width <= 970 && (
+        <Grid container style={{height:"70vh",background:"#272727"}}>
+          <Grid item xs={12}>
+                <Grid container  alignItems="center" direction="row" style={{height:"65vh"}}>
+                  <Grid item>
+                    <Grid container justify="center">
+                    <Grid item >
+                  <Typography data-aos="fade-up" className={classes.heading1me}>
               Your Health. Our Priority.
             </Typography>
-            <Typography data-aos="fade-up" className={classes.heading2}>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Grid container justify="center">
+                      <Grid item xs={7}>
+                      <Typography data-aos="fade-up" className={classes.headingme}>
               Welcome to Salk Health, making it easier, faster, and more efficient than ever to nip your medical concerns in the bud.
             </Typography>
-            <div data-aos="fade-up" className={classes.btnWarper}>
-              <Button className={classes.btn}>Notify me</Button>
-            </div>
+                      </Grid>
+                    </Grid>
+
+                    </Grid>
+                    <Grid item >
+                    <div data-aos="fade-up" className={classes.btnWarper}>
+            <Button className={classes.btnme}>Notify me</Button>
           </div>
+
+                    </Grid>
+                    </Grid>
+                  </Grid>
+
+                </Grid>
+          </Grid>
         </Grid>
-        <Grid item xs="12" md="6">
-          <img src={showcaseImg} alt="" />
-        </Grid>
+
+      )}
+      {width>970 &&(
+      <Grid container className="showcaseTop">
+      <Grid
+        item
+        xs="12"
+        md="6"
+        container
+        direction="column"
+        justify="center"
+        className="showcase-top-warper"
+      >
+        <div className="showcase-top-content">
+          <Typography data-aos="fade-up" className={classes.heading1}>
+            Your Health. Our Priority.
+          </Typography>
+          <Typography data-aos="fade-up" className={classes.heading2}>
+            Welcome to Salk Health, making it easier, faster, and more efficient than ever to nip your medical concerns in the bud.
+          </Typography>
+          <div data-aos="fade-up" className={classes.btnWarper}>
+            <Button className={classes.btn}>Notify me</Button>
+          </div>
+        </div>
       </Grid>
+      <Grid item xs="12" md="6">
+        <img src={showcaseImg} alt="" />
+      </Grid>
+    </Grid>
+      )}
+
 
       <div className="showcaseBottom">
         <Typography align="center" className={classes.heading3}>
